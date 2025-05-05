@@ -1,6 +1,6 @@
 // elements
-const hermiteSelect = document.getElementById('HG-select')
-const laguerreSelect = document.getElementById('LG-select')
+const HGSelect = document.getElementById('HG-select')
+const LGSelect = document.getElementById('LG-select')
 const graphEl = document.getElementById('image')
 const selectTable = document.getElementById('select-table')
 
@@ -8,51 +8,69 @@ const selectTable = document.getElementById('select-table')
 const urlInfo = window.location.search
 
 // settings
+let n = 1 
+let l = 0
 let m = 0
-let n = 0
-let mode = 'HG'
+let mode = 'cross'
 
-// ? on end of url in form of ?mode_m_n
+// ? on end of url in form of ?mode_n_l_m
 if (urlInfo && urlInfo.length > 1) {
   const params = urlInfo.substring(1).split('_')
-  let mTemp = parseInt(params[1])
-  let nTemp = parseInt(params[2])
+  let nTemp = parseInt(params[1])
+  let lTemp = parseInt(params[2])
+  let mTemp = parseInt(params[3])
   let modeTemp = params[0]
   
   if (
-    (0 < nTemp && nTemp < 5)
-    && (0 <= mTemp && mTemp < 5)
-    && (mode === 'HG' || mode === 'LG')
+    (0 < nTemp && nTemp < 8)
+    && (0 <= lTemp && lTemp < nTemp)
+    && (-lTemp - 1 < mTemp && mTemp < lTemp + 1 )
+    && (mode === 'cross' || mode === '3d-real' || mode === '3d-complex')
   ) {
     mode = modeTemp
-    m = mTemp
     n = nTemp
+    l = lTemp
+    m = mTemp
   }
 }
 
 // set image
-const path = `img/${mode}/${m}_${n}.png`
+const path = `img/${mode}/${n}_${l}.png`
 graphEl.src = path
 
 // mark selected mode
 document.getElementById(`${mode}-select`).id = 'selected-mode'
 
 // set up links for mode selection
-hermiteSelect.href = `./?HG_${m}_${n}`
-laguerreSelect.href = `./?LG_${m}_${n}`
+HGSelect.href = `./?HG_${n}_${l}_${m}`
+LGSelect.href = `./?LG_${n}_${l}_${m}`
 
+// subshell numbers to letters table
+subshellTable = {
+  0: 's',
+  1: 'p',
+  2: 'd',
+  3: 'f',
+  4: 'g',
+  5: 'h',
+  6: 'i'
+}
 
 // create table for orbital selection
-for (let mTable = 1; mTable < 5; mTable += 1) {
-  let tableRow = `<div style="background-color:hsl(${mTable * 50}, 100%, 80%)">`
+for (let nTable = 1; nTable < 8; nTable += 1) {
+  let tableRow = `<div style="background-color:hsl(${nTable * 50}, 100%, 80%)">`
 
-  for (let nTable = 1; nTable < 5; nTable += 1) {
+  for (let lTable = 0; lTable < nTable; lTable += 1) {
     let subshellSection = `<div class="subshell-container"><div class="links-container">`
-        
-    subshellSection += `<a href="./?${mode}_${mTable}_${nTable}" 
-    class="orbital" id="${mTable === m && nTable === n && ? "selected-orbital" : ""}">${mTable}${nTable}</a>`
 
-    subshellSection += `</div><div class='labels-container'>${nTable}','${mTable}</div></div>`
+    for (let mTable = -lTable; mTable <= lTable; mTable += 1) {
+      subshellSection += `<a 
+        href="./?${mode}_${nTable}_${lTable}_${mTable}" 
+        class="orbital" id="${nTable === n && lTable === l && mTable === m ? "selected-orbital" : ""}">${mTable}
+      </a>`
+    }
+
+    subshellSection += `</div><div class='labels-container'>${nTable}${subshellTable[lTable]}</div></div>`
     tableRow += subshellSection
   }
 
