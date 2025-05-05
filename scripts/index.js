@@ -42,9 +42,9 @@ hermiteSelect.href = `./?HG_${m}_${n}`
 laguerreSelect.href = `./?LG_${m}_${n}`
 
 // create table for orbital selection
-for (let nTable = 1; nTable < 5; nTable += 1) {
+for (let mTable = 1; mTable < 5; mTable += 1) {
 
-  for (let mTable = 1; mTable < 5; mTable += 1) {
+  for (let nTable = 1; nTable < 5; nTable += 1) {
     let subshellSection = `<div class="subshell-container"><div class="links-container">`
 
       subshellSection += `<a 
