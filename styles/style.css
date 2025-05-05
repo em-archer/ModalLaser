@@ -52,7 +52,7 @@ mjx-container > * {
 }
 
 .section {
-  flex: 2;
+  flex: 3;
 }
 
 .subshell-container {
@@ -60,7 +60,7 @@ mjx-container > * {
 }
 
 .labels-container {
-  margin: 5px
+  margin: 2px
 }
 
 #select {
@@ -71,11 +71,11 @@ mjx-container > * {
 }
 
 #graph {
-  flex: 3;
+  flex: 2;
   margin: 10px
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1000px) {
   #container { flex-direction: row; }
   #graph {margin-left: 5px; margin-right: 10px;}
   #select {margin-right: 5px; margin-left: 10px;}
