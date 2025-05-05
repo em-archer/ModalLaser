@@ -52,7 +52,7 @@ mjx-container > * {
 }
 
 .section {
-  flex: 2;
+  flex: 1;
 }
 
 .subshell-container {
