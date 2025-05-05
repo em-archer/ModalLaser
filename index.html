@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Laser Modes</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Emily Archer">
+    <meta
+      name="description"
+      content="Laser Modes allows the user to look at the intensity and phase of Hermite-Gaussian and Laguerre-Gaussian laser modes."
+    />
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4874473017582356"
+     crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h1>Laser Modes</h1>
+    
+    <div id='container'>
+      <div id='select' class='section'>
+        <div id='mode-selection'>
+          <a id="HG" class="selectable-mode">Hermite-Gaussian</a>
+          <a id="LG" class="selectable-mode">Laguerre-Gaussian</a>
+        </div>
+
+        <div id='select-table'></div>
+      </div>
+      <div id='graph' class='section'>
+        <img id='image'></img>
+      </div>
+    </div>
+    <div id="about">
+      <h2>About</h2>
+      <p>All software used to generate these graphs and build this site, as well as all the graphs themselves, can be found at <a href="https://github.com/em-archer/ModalLaser">https://github.com/em-archer/ModalLaser</a>. This was created following the excellent resource <a href="https://github.com/liam-ilan/electron-orbitals">https://github.com/liam-ilan/electron-orbitals</a> as a template.
+
+      <div id="credit">
+        <h3>Credit</h3>
+        <ul>
+          <li>Built by Emily Archer</li>
+        </ul>        
+      </div>
+    </div>
+    
+
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
