@@ -48,14 +48,10 @@ for (let mTable = 0; mTable < 5; mTable += 1) {
   for (let nTable = 0; nTable < 5; nTable += 1) {
     let subshellSection = `<div class="subshell-container"><div class="links-container">`
 
-    for (let nTable = 0; nTable < 5; nTable += 1) {
-      subshellSection += `<a 
-        href="./?${mode}_${mTable}_${nTable}" 
+    subshellSection += `<a href="./?${mode}_${mTable}_${nTable}" 
         class="orbital" id="${mTable === m && nTable === n ? "selected-orbital" : ""}">${mTable}${nTable}
       </a>`
-    }
 
-    subshellSection += `</div><div class='labels-container'>${mTable}${nTable}</div></div>`
     tableRow += subshellSection
   }
 
