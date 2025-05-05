@@ -41,21 +41,20 @@ document.getElementById(`${mode}-select`).id = 'selected-mode'
 hermiteSelect.href = `./?HG_${m}_${n}`
 laguerreSelect.href = `./?LG_${m}_${n}`
 
+
 // create table for orbital selection
 for (let mTable = 1; mTable < 5; mTable += 1) {
+  let tableRow = `<div style="background-color:hsl(${mTable * 50}, 100%, 80%)">`
 
   for (let nTable = 1; nTable < 5; nTable += 1) {
     let subshellSection = `<div class="subshell-container"><div class="links-container">`
+        
+    subshellSection += `<a href="./?${mode}_${mTable}_${nTable}" 
+    class="orbital" id="${mTable === m && nTable === n && ? "selected-orbital" : ""}">${mTable}${nTable}</a>`
 
-    for (let nTable = 1; nTable < 5; nTable += 1) {
-      subshellSection += `<a 
-        href="./?${mode}_${mTable}_${nTable}" 
-        class="orbital" id="${mTable === m && nTable === n ? "selected-orbital" : ""}">${nTable}
-      </a>`
-    }
-
-    subshellSection += `</div><div class='labels-container'>${mTable}${nTable}</div></div>`
+    subshellSection += `</div><div class='labels-container'>${nTable}','${mTable}</div></div>`
     tableRow += subshellSection
+  }
 
   tableRow += '</div>'
   selectTable.innerHTML += tableRow
