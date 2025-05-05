@@ -8,42 +8,38 @@ const selectTable = document.getElementById('select-table')
 const urlInfo = window.location.search
 
 // settings
-let n = 1 
-let l = 0
 let m = 0
-let mode = 'cross'
+let n = 0
+let mode = 'HG'
 
-// ? on end of url in form of ?mode_n_l_m
+// ? on end of url in form of ?mode_m_n
 if (urlInfo && urlInfo.length > 1) {
   const params = urlInfo.substring(1).split('_')
-  let nTemp = parseInt(params[1])
-  let lTemp = parseInt(params[2])
-  let mTemp = parseInt(params[3])
+  let mTemp = parseInt(params[1])
+  let nTemp = parseInt(params[2])
   let modeTemp = params[0]
   
   if (
-    (0 < nTemp && nTemp < 8)
-    && (0 <= lTemp && lTemp < nTemp)
-    && (-lTemp - 1 < mTemp && mTemp < lTemp + 1 )
-    && (mode === 'cross' || mode === '3d-real' || mode === '3d-complex')
+    (0 < mTemp && mTemp < 5)
+    && (0 < nTemp && nTemp < 5)
+    && (mode === 'HG' || mode === 'LG')
   ) {
     mode = modeTemp
-    n = nTemp
-    l = lTemp
     m = mTemp
+    n = nTemp
   }
 }
 
 // set image
-const path = `img/${mode}/${n}_${l}.png`
+const path = `img/${mode}/${m}_${n}.png`
 graphEl.src = path
 
 // mark selected mode
 document.getElementById(`${mode}-select`).id = 'selected-mode'
 
 // set up links for mode selection
-HGSelect.href = `./?HG_${n}_${l}_${m}`
-LGSelect.href = `./?LG_${n}_${l}_${m}`
+HGSelect.href = `./?HG_${m}_${n}`
+LGSelect.href = `./?LG_${m}_${n}`
 
 // subshell numbers to letters table
 subshellTable = {
