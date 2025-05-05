@@ -50,7 +50,7 @@ for (let mTable = 0; mTable < 10; mTable += 1) {
     
     subshellSection += `<a 
         href="./?${mode}_${mTable}_${nTable}" 
-        class="orbital" id="${mTable === m && nTable === n ? "selected-orbital" : ""}">${mTable}${nTable}
+        class="orbital" id="${mTable === m && nTable === n ? "selected-orbital" : ""}">
       </a>`
 
     subshellSection += `</div><div class='labels-container'>${mTable}${nTable}</div></div>`
