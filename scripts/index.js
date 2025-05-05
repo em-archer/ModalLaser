@@ -53,20 +53,20 @@ subshellTable = {
 }
 
 // create table for orbital selection
-for (let nTable = 1; nTable < 8; nTable += 1) {
-  let tableRow = `<div style="background-color:hsl(${nTable * 50}, 100%, 80%)">`
+for (let mTable = 1; mTable < 5; mTable += 1) {
+  let tableRow = `<div style="background-color:hsl(${mTable * 50}, 100%, 80%)">`
 
-  for (let lTable = 0; lTable < nTable; lTable += 1) {
+  for (let nTable = 1; nTable < 5; nTable += 1) {
     let subshellSection = `<div class="subshell-container"><div class="links-container">`
 
-    for (let mTable = -lTable; mTable <= lTable; mTable += 1) {
+    for (let nTable = 1; nTable < 5; nTable += 1) {
       subshellSection += `<a 
-        href="./?${mode}_${nTable}_${lTable}_${mTable}" 
-        class="orbital" id="${nTable === n && lTable === l && mTable === m ? "selected-orbital" : ""}">${mTable}
+        href="./?${mode}_${mTable}_${nTable}" 
+        class="orbital" id="${mTable === m && nTable === n ? "selected-orbital" : ""}">${mTable}
       </a>`
     }
 
-    subshellSection += `</div><div class='labels-container'>${nTable}${subshellTable[lTable]}</div></div>`
+    subshellSection += `</div><div class='labels-container'>${mTable}${nTable}</div></div>`
     tableRow += subshellSection
   }
 
