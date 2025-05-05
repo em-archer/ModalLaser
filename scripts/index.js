@@ -20,8 +20,8 @@ if (urlInfo && urlInfo.length > 1) {
   let modeTemp = params[0]
   
   if (
-    (0 < mTemp && mTemp < 5)
-    && (0 < nTemp && nTemp < 5)
+    (0 <= mTemp && mTemp < 5)
+    && (0 <= nTemp && nTemp < 5)
     && (mode === 'HG' || mode === 'LG')
   ) {
     mode = modeTemp
