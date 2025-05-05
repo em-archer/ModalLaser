@@ -41,28 +41,17 @@ document.getElementById(`${mode}-select`).id = 'selected-mode'
 HGSelect.href = `./?HG_${m}_${n}`
 LGSelect.href = `./?LG_${m}_${n}`
 
-// subshell numbers to letters table
-subshellTable = {
-  0: 's',
-  1: 'p',
-  2: 'd',
-  3: 'f',
-  4: 'g',
-  5: 'h',
-  6: 'i'
-}
-
 // create table for orbital selection
-for (let mTable = 1; mTable < 5; mTable += 1) {
+for (let mTable = 0; mTable < 5; mTable += 1) {
   let tableRow = `<div style="background-color:hsl(${mTable * 50}, 100%, 80%)">`
 
-  for (let nTable = 1; nTable < 5; nTable += 1) {
+  for (let nTable = 0; nTable < 5; nTable += 1) {
     let subshellSection = `<div class="subshell-container"><div class="links-container">`
 
-    for (let nTable = 1; nTable < 5; nTable += 1) {
+    for (let nTable = 0; nTable < 5; nTable += 1) {
       subshellSection += `<a 
         href="./?${mode}_${mTable}_${nTable}" 
-        class="orbital" id="${mTable === m && nTable === n ? "selected-orbital" : ""}">${mTable}
+        class="orbital" id="${mTable === m && nTable === n ? "selected-orbital" : ""}">${mTable}${nTable}
       </a>`
     }
 
