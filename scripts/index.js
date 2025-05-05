@@ -20,8 +20,8 @@ if (urlInfo && urlInfo.length > 1) {
   let modeTemp = params[0]
   
   if (
-    (0 <= mTemp && mTemp < 5)
-    && (0 <= nTemp && nTemp < 5)
+    (0 <= mTemp && mTemp < 10)
+    && (0 <= nTemp && nTemp < 10)
     && (mode === 'HG' || mode === 'LG')
   ) {
     mode = modeTemp
@@ -42,10 +42,10 @@ HGSelect.href = `./?HG_${m}_${n}`
 LGSelect.href = `./?LG_${m}_${n}`
 
 // create table for orbital selection
-for (let mTable = 0; mTable < 5; mTable += 1) {
+for (let mTable = 0; mTable < 10; mTable += 1) {
   let tableRow = `<div style="background-color:hsl(${mTable * 50}, 100%, 80%)">`
 
-  for (let nTable = 0; nTable < 5; nTable += 1) {
+  for (let nTable = 0; nTable < 10; nTable += 1) {
     let subshellSection = `<div class="subshell-container"><div class="links-container">`
     
     subshellSection += `<a 

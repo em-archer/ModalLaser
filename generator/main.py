@@ -15,8 +15,8 @@ wy = 10e-6
 wavelength = 800e-9
 
 
-for n in range(0, 5):
-    for m in range(0, 5):
+for n in range(0, 10):
+    for m in range(0, 10):
         count += 1
         print(f'Rendering mode {count}/100')
         
