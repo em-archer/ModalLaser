@@ -43,7 +43,7 @@ LGSelect.href = `./?LG_${m}_${n}`
 
 // create table for orbital selection
 for (let mTable = 0; mTable < 10; mTable += 1) {
-  let tableRow = `<div style="background-color:hsl(${mTable * 50}, 100%, 80%)">`
+  let tableRow = `<div style="background-color:#a5c4c5">`
 
   for (let nTable = 0; nTable < 10; nTable += 1) {
     let subshellSection = `<div class="subshell-container"><div class="links-container">`
